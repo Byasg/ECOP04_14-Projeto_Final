@@ -1,0 +1,45 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"3 led.c
+[; ;led.c: 3:     void ConfiguraLed(void){
+[v _ConfiguraLed `(v ~T0 @X0 1 ef ]
+{
+[e :U _ConfiguraLed ]
+[f ]
+"4
+[; ;led.c: 4:         (*(volatile __near unsigned char*)0xF95) = 0x00;
+[e = *U -> -> 3989 `i `*VNuc -> -> 0 `i `uc ]
+"5
+[; ;led.c: 5:         (*(volatile __near unsigned char*)0xF83) = 0xFF;
+[e = *U -> -> 3971 `i `*VNuc -> -> 255 `i `uc ]
+"6
+[; ;led.c: 6:     }
+[e :UE 1 ]
+}
+"8
+[; ;led.c: 8:     void LigarLed(char num){
+[v _LigarLed `(v ~T0 @X0 1 ef1`uc ]
+{
+[e :U _LigarLed ]
+[v _num `uc ~T0 @X0 1 r1 ]
+[f ]
+"9
+[; ;led.c: 9:         (((*(volatile __near unsigned char*)0xF83)) &= ~(1<<num));
+[e =& *U -> -> 3971 `i `*VNuc -> ~ << -> 1 `i -> _num `i `uc ]
+"10
+[; ;led.c: 10:     }
+[e :UE 2 ]
+}
+"12
+[; ;led.c: 12:     void DesligarLed(char num){
+[v _DesligarLed `(v ~T0 @X0 1 ef1`uc ]
+{
+[e :U _DesligarLed ]
+[v _num `uc ~T0 @X0 1 r1 ]
+[f ]
+"13
+[; ;led.c: 13:         (((*(volatile __near unsigned char*)0xF83)) |= (1<<num));
+[e =| *U -> -> 3971 `i `*VNuc -> << -> 1 `i -> _num `i `uc ]
+"14
+[; ;led.c: 14:     }
+[e :UE 3 ]
+}
